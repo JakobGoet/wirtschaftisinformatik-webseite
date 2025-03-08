@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jakob Göttlicher - Duales Studium</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to right, #1e3c72, #2a5298);
+            color: white;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            position: relative;
+        }
+        header {
+            background: rgba(0, 0, 0, 0.6);
+            padding: 30px 0;
+            font-size: 2.5em;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            animation: fadeIn 1s ease-in-out;
+        }
+        .container {
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+            animation: slideIn 1s ease-in-out;
+        }
+        h2 {
+            font-size: 2em;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        p {
+            font-size: 1.3em;
+            line-height: 1.8;
+        }
+        button {
+            background: linear-gradient(to right, #ff416c, #ff4b2b);
+            color: white;
+            padding: 15px 25px;
+            border: none;
+            border-radius: 30px;
+            font-size: 1.2em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.3s ease, background 0.3s ease;
+            display: block;
+            margin: 20px auto;
+        }
+        button:hover {
+            transform: scale(1.1);
+            background: linear-gradient(to right, #ff4b2b, #ff416c);
+        }
+        .hidden {
+            display: none;
+        }
+        .avatar {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            width: 90px;
+            height: 90px;
+            background-image: url('https://www.example.com/avatar.jpg');
+            background-size: cover;
+            background-position: center;
+            border-radius: 50%;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.4);
+            transition: transform 0.5s ease, opacity 0.5s ease;
+            animation: popIn 1s ease-in-out;
+        }
+        .logo {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 150px;
+            height: auto;
+        }
+        .section-img {
+            width: 100%;
+            max-width: 400px;
+            border-radius: 10px;
+            margin-top: 10px;
+        }
+        footer {
+            background: rgba(0, 0, 0, 0.6);
+            padding: 20px;
+            font-size: 1.2em;
+            font-weight: bold;
+            margin-top: 30px;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes slideIn {
+            from { transform: translateY(30px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        @keyframes popIn {
+            0% { transform: scale(0); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+    </style>
+    <script>
+        function toggleSection(id) {
+            var section = document.getElementById(id);
+            if (section.classList.contains("hidden")) {
+                section.classList.remove("hidden");
+                section.style.animation = "fadeIn 0.5s ease-in-out";
+            } else {
+                section.style.animation = "fadeOut 0.5s ease-in-out";
+                setTimeout(() => section.classList.add("hidden"), 500);
+            }
+        }
+    </script>
+</head>
+<body>
+    <header>
+        Duales Studium - Wirtschaftsinformatik
+    </header>
+    <img src="schwarz logo.jpeg" alt="Schwarz Corporate Solutions Logo" class="logo">
+    <div class="container">
+        <button onclick="toggleSection('about')">Über mich</button>
+        <div id="about" class="hidden">
+            <h2>Über mich</h2>
+            <p>Mein Name ist <strong>Jakob Göttlicher</strong>. Ich bin 17 Jahre alt und auf dem Weg, mein Abitur zu absolvieren.</p>
+            <img src="jakob bild.jpg" alt="Jakob Göttlicher" class="section-img">
+        </div>
+        
+        <button onclick="toggleSection('hobbies')">Meine Hobbys</button>
+        <div id="hobbies" class="hidden">
+            <h2>Hobbys</h2>
+            <p>Ich spiele gerne Tennis, Trompete und bereite mich auf mein Abitur vor.</p>
+            <img src="jakob trompete.jpeg" alt="Jakob spielt Trompete" class="section-img">
+        </div>
+        
+        <button onclick="toggleSection('whyChoose')">Warum mich wählen?</button>
+        <div id="whyChoose" class="hidden">
+            <h2>Warum sollten Sie mich auswählen?</h2>
+            <p>Ich bin fokussiert, teamfähig und behalte stets meine Ziele im Blick.</p>
+        </div>
+    </div>
+    <footer>
+        &copy; 2025 Jakob Göttlicher
+    </footer>
+    <div class="avatar"></div>
+</body>
+</html>
